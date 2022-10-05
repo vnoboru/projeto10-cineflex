@@ -1,11 +1,24 @@
-import styled from "styled-components";
 import GlobalStyle from "./assets/css/GlobalStyle";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styled from "styled-components";
+import Filmes from "./components/Filmes";
+import FilmeEscolhido from "./components/FilmeEscolhido";
+import Sessao from "./components/Sessao";
+import FinalizarCompra from "./components/FinalizarCompra";
 
 export default function App() {
   return (
     <>
-      <GlobalStyle />
-      <Header>CINEFLEX</Header>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Header>CINEFLEX</Header>
+        <Routes>
+          <Route path="/" element={<Filmes />} />
+          <Route path="/filme" element={<FilmeEscolhido />} />
+          <Route path="/filme/sessao" element={<Sessao />} />
+          <Route path="/filme/sessao/sucesso" element={<FinalizarCompra />} />
+        </Routes>
+      </BrowserRouter>
       {/*Pagina 1
       <Main>
         <h1>Selecione o filme</h1>
@@ -16,6 +29,7 @@ export default function App() {
           <div></div>
         </ContainerFilmes>
       </Main>*/}
+
       {/*Pagina 2
       <Main>
         <ContainerHorario>
@@ -34,7 +48,9 @@ export default function App() {
           </FooterFilme>
         </ContainerHorario>
       </Main>*/}
-      {/*<Main>
+
+      {/*Pagina3
+      <Main>
         <h1>Selecione o(s) assento(s)</h1>
         <ContainerBotoes>
           <BotaoAssento>01</BotaoAssento>
@@ -95,7 +111,9 @@ export default function App() {
           </DadosFilme>
         </FooterFilme>
       </Main>*/}
-      {/*<Main>
+
+      {/*Pagina4
+      <Main>
         <h2>
           Pedido Feito<br></br> com sucesso!
         </h2>
