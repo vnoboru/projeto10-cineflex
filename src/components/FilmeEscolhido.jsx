@@ -1,60 +1,58 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import React from "react";
 
-/*function Horarios(props) {
-  const { id, title, posterURL, releaseDate } = props;
-  console.log(id);
-  console.log(title);
-  console.log(posterURL);
-  console.log(releaseDate);
-}*/
+function Horario(props) {
+  console.log(props);
+  const { id, weekday, date } = props.item;
+  const { horario, idCinema } = props;
+  console.log(horario, idCinema);
+  console.log(id, weekday);
+  return <></>;
+}
 
 export default function FilmeEscolhido() {
-  /*const [horariosFilme, setHorariosFilme] = useState({});
+  const { filmeID } = useParams();
+  const [dadosFilme, setDadosFilme] = useState([]);
+  const [dados, setDados] = useState([]);
   useEffect(() => {
     const promise = axios.get(
-      `https://mock-api.driven.com.br/api/v8/cineflex/movies/1/showtimes`
+      `https://mock-api.driven.com.br/api/v8/cineflex/movies/${filmeID}/showtimes`
     );
     promise.then((title) => {
-      setHorariosFilme(title);
+      setDadosFilme(title.data.days);
+      setDados(title.data);
     });
   }, []);
+  const { posterURL, title } = dados;
 
-  console.log(horariosFilme)*/
-
-  /*return (
-    <Main>
-      <h1>Selecione o horário</h1>
-      {horariosFilmes.map((dados) => (
-        <Horarios key={dados.id} dados={dados} />
-      ))}
-    </Main>
-  );*/
   return (
     <Main>
       <h1>Selecione o horário</h1>
       <ContainerHorario>
-        <h2>Quinta-feira - 24/06/2021</h2>
-        <Link to="/filme/sessao">
-          <button>15:00</button>
-        </Link>
-        <Link to="/filme/sessao">
-          <button>19:00</button>
-        </Link>
-        <h2>Sexta-feira - 25/06/2021</h2>
-        <Link to="/filme/sessao">
-          <button>15:00</button>
-        </Link>
-        <Link to="/filme/sessao">
-          <button>19:00</button>
-        </Link>
+        {dadosFilme.map(({ weekday, date, id, showtimes }) => {
+          return (
+            <React.StrictMode key={id}>
+              <h2>
+                {weekday} - {date}
+              </h2>
+              {showtimes.map(({ name, id }) => {
+                return (
+                  <Link to={`/filme/sessao/${id}`} key={id}>
+                    <button>{name}</button>
+                  </Link>
+                );
+              })}
+            </React.StrictMode>
+          );
+        })}
         <FooterFilme>
           <Imagem>
-            <img />
+            <img src={posterURL} />
           </Imagem>
-          <h1>Enola Holmes</h1>
+          <h1>{title}</h1>
         </FooterFilme>
       </ContainerHorario>
     </Main>
@@ -132,12 +130,10 @@ const Imagem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: gray;
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
 
   img {
     width: 48px;
     height: 72px;
-    background: green;
   }
 `;

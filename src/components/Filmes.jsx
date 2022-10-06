@@ -7,9 +7,8 @@ function CardFilme(props) {
   const { id, posterURL, title } = props.itens;
   return (
     <div>
-      {/*<Link to={`/filme/${id}`}>*/}
-        <Link to="/filme/">
-        <img src={posterURL} alt={title}/>
+      <Link to={`/filme/${id}`}>
+        <img src={posterURL} alt={title} />
       </Link>
     </div>
   );

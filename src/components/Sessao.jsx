@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Sessao() {
+  /*const { sessaoID } = useParams();*/
+
+  /*useEffect(()=>{
+    const promise = axios.get(``)
+  })*/
   return (
     <Main>
       <h1>Selecione o(s) assento(s)</h1>

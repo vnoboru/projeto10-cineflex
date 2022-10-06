@@ -14,40 +14,11 @@ export default function App() {
         <Header>CINEFLEX</Header>
         <Routes>
           <Route path="/" element={<Filmes />} />
-          <Route path="/filme" element={<FilmeEscolhido />} />
-          <Route path="/filme/sessao" element={<Sessao />} />
+          <Route path="/filme/:filmeID" element={<FilmeEscolhido />} />
+          <Route path="/filme/sessao/:sessaoID" element={<Sessao />} />
           <Route path="/filme/sessao/sucesso" element={<FinalizarCompra />} />
         </Routes>
       </BrowserRouter>
-      {/*Pagina 1
-      <Main>
-        <h1>Selecione o filme</h1>
-        <ContainerFilmes>
-          <div><img /></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </ContainerFilmes>
-      </Main>*/}
-
-      {/*Pagina 2
-      <Main>
-        <ContainerHorario>
-          <h1>Selecione o horário</h1>
-          <h2>Quinta-feira - 24/06/2021</h2>
-          <button>15:00</button>
-          <button>19:00</button>
-          <h2>Sexta-feira - 25/06/2021</h2>
-          <button>15:00</button>
-          <button>19:00</button>
-          <FooterFilme>
-            <div>
-                <img/>
-            </div>
-            <h1>Enola Holmes</h1>
-          </FooterFilme>
-        </ContainerHorario>
-      </Main>*/}
 
       {/*Pagina3
       <Main>
