@@ -7,7 +7,7 @@ import Main from "./Main.jsx";
 function CardFilme(props) {
   const { id, posterURL, title } = props.itens;
   return (
-    <div>
+    <div data-identifier="movie-outdoor">
       <Link to={`/filme/${id}`}>
         <img src={posterURL} alt={title} />
       </Link>

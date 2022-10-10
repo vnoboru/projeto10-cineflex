@@ -4,7 +4,7 @@ export default function ContainerLegendas() {
   return (
     <Legendas>
       <Legenda>
-        <BotaoSelecionado />
+        <BotaoSelecionado data-identifier="seat-selected-subtitle" />
         <p>Selecionado</p>
       </Legenda>
       <Legenda>
@@ -12,7 +12,7 @@ export default function ContainerLegendas() {
         <p>Disponível</p>
       </Legenda>
       <Legenda>
-        <BotaoIndisponivel />
+        <BotaoIndisponivel data-identifier="seat-unavailable-subtitle" />
         <p>Indisponível</p>
       </Legenda>
     </Legendas>

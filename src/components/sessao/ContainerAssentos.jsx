@@ -9,7 +9,7 @@ export default function ContainerAssentos(props) {
   return (
     <>
       {disponivel ? (
-        <BotaoAssento
+        <BotaoAssento data-identifier="seat"
           assentoSel={assentoSel}
           onClick={() => {
             if (!assentoSel) {
@@ -32,7 +32,7 @@ export default function ContainerAssentos(props) {
           <p>{nome}</p>
         </BotaoAssento>
       ) : (
-        <BotaoIndisponivel
+        <BotaoIndisponivel data-identifier="seat"
           onClick={() => {
             alert("Esse assento não está disponível");
           }}

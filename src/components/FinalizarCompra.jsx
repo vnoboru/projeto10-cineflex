@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Main from "./Main";
 
 export default function FinalizarCompra() {
+  const {nome, cpf, titulo, hora, data, livre } = useLocation().state;
+
   return (
     <Main>
       <h2>
@@ -10,22 +12,31 @@ export default function FinalizarCompra() {
       </h2>
       <Dados>
         <h3>Filme e sessão</h3>
-        <p>Enola Holmes</p>
-        <p>24/06/2021 15:00</p>
+        <p data-identifier="movie-session-infos-reserve-finished">
+          {titulo}
+        </p>
+        <p data-identifier="movie-session-infos-reserve-finished">
+          {data} - {hora}
+        </p>
       </Dados>
       <Dados>
         <h3>Ingressos</h3>
-        <p>Assento 15</p>
-        <p>Assento 16</p>
+        {livre.map((id) => (
+          <p key={id} data-identifier="seat-infos-reserve-finished" >Assento {id}</p>
+        ))}
       </Dados>
       <Dados>
         <h3>Comprador</h3>
-        <p>Nome: Vitor Noboru Torii</p>
-        <p>CPF: 123.456.789-12</p>
+        <p data-identifier="buyer-infos-reserve-finished">
+          Nome: {nome}
+        </p>
+        <p data-identifier="buyer-infos-reserve-finished">
+          CPF: {cpf}
+        </p>
       </Dados>
       <Link to="/">
         <BotaoHome>
-          <button>Voltar pra Home</button>
+          <button data-identifier="back-to-home-btn">Voltar pra Home</button>
         </BotaoHome>
       </Link>
     </Main>

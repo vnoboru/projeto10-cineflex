@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ContainerAssentos from "./ContainerAssentos";
 import ContainerLegendas from "./ContainerLegendas";
+import Dados from "./Dados";
 import Main from "../Main";
+import FooterFilme from "../FooterFilme";
+import Imagem from "../Imagem";
 
 export default function Sessao() {
   const { sessaoID } = useParams();
@@ -26,7 +29,7 @@ export default function Sessao() {
       setFilme(response.data.movie);
       setSeats(response.data.seats);
     });
-  }, []);
+  }, [sessaoID]);
 
   return (
     <Main>
@@ -47,27 +50,24 @@ export default function Sessao() {
       </ContainerBotoes>
 
       <ContainerLegendas />
-      <DadosPessoais>
-        <h3>Nome do comprador:</h3>
-        <input type="text" placeholder="Digite seu nome..."></input>
-      </DadosPessoais>
-      <DadosPessoais>
-        <h3>Nome do comprador:</h3>
-        <input type="text" placeholder="Digite seu nome..."></input>
-      </DadosPessoais>
-      <Link to="/filme/sessao/sucesso">
-        <BotaoHome>
-          <button>Reservar assento(s)</button>
-        </BotaoHome>
-      </Link>
+      <Dados
+        titulo={filme.title}
+        hora={hora}
+        diaSemana={dia.weekday}
+        data={dia.date}
+        numAssento={numAssento}
+        livre={livre}
+      />
 
       <FooterFilme>
         <Imagem>
-          <img />
+          <img src={filme.posterURL} alt={filme.title}/>
         </Imagem>
         <DadosFilme>
-          <h1>
-            Enola Holmes<br></br>Quinta-feira - 15:00
+          <h1 data-identifier="movie-and-session-infos-preview">
+            {filme.title}
+            <br></br>
+            {dia.weekday} - {hora}
           </h1>
         </DadosFilme>
       </FooterFilme>
@@ -82,73 +82,6 @@ const ContainerBotoes = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 9px;
-`;
-
-const DadosPessoais = styled.div`
-  margin-top: 40px;
-  margin-left: 15px;
-  h3 {
-    font-family: "Roboto";
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21.09px;
-    color: #293845;
-    margin-bottom: 10px;
-  }
-  input {
-    font-family: "Roboto";
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21.09px;
-    width: 327px;
-    height: 35px;
-    color: #afafaf;
-  }
-`;
-
-const BotaoHome = styled.div`
-  text-align: center;
-  margin-top: 50px;
-  button {
-    width: 225px;
-    height: 42px;
-    background: #e8833a;
-    border: none;
-    border-radius: 3px;
-    font-family: "Roboto";
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21.09px;
-    color: #ffffff;
-  }
-`;
-
-const FooterFilme = styled.footer`
-  width: 100%;
-  height: 117px;
-  right: 0px;
-  bottom: 0px;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  background: #dfe6ed;
-  border: 1px solid #9eadba;
-`;
-
-const Imagem = styled.div`
-  width: 64px;
-  height: 89px;
-  margin: 0px 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: gray;
-  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
-  img {
-    width: 48px;
-    height: 72px;
-    background: green;
-  }
 `;
 
 const DadosFilme = styled.div`

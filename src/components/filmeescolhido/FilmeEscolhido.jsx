@@ -28,13 +28,13 @@ export default function FilmeEscolhido() {
         {dadosFilme.map(({ weekday, date, id, showtimes }) => {
           return (
             <React.StrictMode key={id}>
-              <h3>
+              <h3 data-identifier="session-date">
                 {weekday} - {date}
               </h3>
               {showtimes.map(({ name, id }) => {
                 return (
                   <Link to={`/filme/sessao/${id}`} key={id}>
-                    <button>{name}</button>
+                    <button data-identifier="hour-minute-btn">{name}</button>
                   </Link>
                 );
               })}

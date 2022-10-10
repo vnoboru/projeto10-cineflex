@@ -16,7 +16,7 @@ export default function App() {
           <Route path="/" element={<Filmes />} />
           <Route path="/filme/:filmeID" element={<FilmeEscolhido />} />
           <Route path="/filme/sessao/:sessaoID" element={<Sessao />} />
-          <Route path="/filme/sessao/sucesso" element={<FinalizarCompra />} />
+          <Route path="/sucesso" element={<FinalizarCompra />} />
         </Routes>
       </BrowserRouter>
 
