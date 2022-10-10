@@ -33,7 +33,6 @@ const Legenda = styled.div`
   align-items: center;
   p {
     font-family: "Roboto";
-    font-size: 13px;
     font-weight: 400;
     line-height: 15.23px;
     color: #4e5a65;

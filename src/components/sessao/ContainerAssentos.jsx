@@ -47,6 +47,7 @@ export default function ContainerAssentos(props) {
 const BotaoAssento = styled.button`
   width: 26px;
   height: 26px;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,6 +60,7 @@ const BotaoAssento = styled.button`
 const BotaoIndisponivel = styled.div`
   width: 26px;
   height: 26px;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;

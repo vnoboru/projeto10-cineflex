@@ -30,13 +30,7 @@ export default function Dados(props) {
         navigate("/sucesso", {
           state: { nome, cpf, titulo, hora, data, livre },
         });
-        Reset();
       });
-
-      function Reset() {
-        setNome("");
-        setCpf("");
-      }
     }
   }
 
@@ -96,6 +90,7 @@ const DadosPessoais = styled.div`
 const BotaoHome = styled.div`
   text-align: center;
   margin-top: 50px;
+  margin-bottom: 130px;
 
   button {
     width: 225px;
