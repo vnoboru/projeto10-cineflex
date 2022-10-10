@@ -18,8 +18,7 @@ export default function FilmeEscolhido() {
       setDadosFilme(title.data.days);
       setDados(title.data);
     });
-  }, []);
-  const { posterURL, title } = dados;
+  }, [filmeID]);
 
   return (
     <Main>
@@ -41,7 +40,7 @@ export default function FilmeEscolhido() {
             </React.StrictMode>
           );
         })}
-          <ContainerFilme posterURL={dados.posterURL} title={dados.title}/>
+        <ContainerFilme posterURL={dados.posterURL} title={dados.title} />
       </ContainerHorario>
     </Main>
   );

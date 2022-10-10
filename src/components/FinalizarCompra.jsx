@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import Main from "./Main";
 
 export default function FinalizarCompra() {
-  const {nome, cpf, titulo, hora, data, livre } = useLocation().state;
+  const { nome, cpf, titulo, hora, data, livre } = useLocation().state;
 
   return (
     <Main>
@@ -12,9 +12,7 @@ export default function FinalizarCompra() {
       </h2>
       <Dados>
         <h3>Filme e sessão</h3>
-        <p data-identifier="movie-session-infos-reserve-finished">
-          {titulo}
-        </p>
+        <p data-identifier="movie-session-infos-reserve-finished">{titulo}</p>
         <p data-identifier="movie-session-infos-reserve-finished">
           {data} - {hora}
         </p>
@@ -22,17 +20,15 @@ export default function FinalizarCompra() {
       <Dados>
         <h3>Ingressos</h3>
         {livre.map((id) => (
-          <p key={id} data-identifier="seat-infos-reserve-finished" >Assento {id}</p>
+          <p key={id} data-identifier="seat-infos-reserve-finished">
+            Assento {id}
+          </p>
         ))}
       </Dados>
       <Dados>
         <h3>Comprador</h3>
-        <p data-identifier="buyer-infos-reserve-finished">
-          Nome: {nome}
-        </p>
-        <p data-identifier="buyer-infos-reserve-finished">
-          CPF: {cpf}
-        </p>
+        <p data-identifier="buyer-infos-reserve-finished">Nome: {nome}</p>
+        <p data-identifier="buyer-infos-reserve-finished">CPF: {cpf}</p>
       </Dados>
       <Link to="/">
         <BotaoHome>

@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 
 export default function Dados(props) {
-  const { titulo, hora, diaSemana, data, numAssento, livre } = props;
+  const { titulo, hora, data, numAssento, livre } = props;
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
 
@@ -58,9 +58,9 @@ export default function Dados(props) {
           required
         ></input>
       </DadosPessoais>
-        <BotaoHome>
-          <button data-identifier="reservation-btn">Reservar assento(s)</button>
-        </BotaoHome>
+      <BotaoHome>
+        <button data-identifier="reservation-btn">Reservar assento(s)</button>
+      </BotaoHome>
     </form>
   );
 }

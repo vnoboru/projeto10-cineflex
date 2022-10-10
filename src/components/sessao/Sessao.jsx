@@ -61,7 +61,7 @@ export default function Sessao() {
 
       <FooterFilme>
         <Imagem>
-          <img src={filme.posterURL} alt={filme.title}/>
+          <img src={filme.posterURL} alt={filme.title} />
         </Imagem>
         <DadosFilme>
           <h1 data-identifier="movie-and-session-infos-preview">

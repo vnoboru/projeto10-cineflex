@@ -19,7 +19,6 @@ export default function App() {
           <Route path="/sucesso" element={<FinalizarCompra />} />
         </Routes>
       </BrowserRouter>
-
     </>
   );
 }
