@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Main from "./Main";
 
 export default function FinalizarCompra() {
   return (
@@ -31,48 +32,19 @@ export default function FinalizarCompra() {
   );
 }
 
-const Main = styled.main`
-  padding-top: 70px;
-  width: 100%;
-
-  h1 {
-    font-family: "Roboto";
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 28.13px;
-    color: #293845;
-    text-align: center;
-    margin: 40px 0px;
-  }
-
-  h2 {
-    font-family: "Roboto";
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 28.13px;
-    color: #247a6b;
-    text-align: center;
-    margin: 40px 0px;
-  }
-`;
-
 const Dados = styled.div`
   margin-bottom: 20px;
   margin-left: 30px;
 
   h3 {
-    font-family: "Roboto";
     font-size: 24px;
     font-weight: 700;
-    line-height: 28.13px;
     color: #293845;
     margin-bottom: 5px;
   }
   p {
-    font-family: "Roboto";
     font-size: 22px;
     font-weight: 400;
-    line-height: 25.78px;
     color: #293845;
     margin-bottom: 3px;
   }
@@ -88,10 +60,8 @@ const BotaoHome = styled.div`
     background: #e8833a;
     border: none;
     border-radius: 3px;
-    font-family: "Roboto";
     font-size: 18px;
     font-weight: 400;
-    line-height: 21.09px;
     color: #ffffff;
   }
 `;

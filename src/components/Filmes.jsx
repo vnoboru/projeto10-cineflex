@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Main from "./Main.jsx";
 
 function CardFilme(props) {
   const { id, posterURL, title } = props.itens;
@@ -19,13 +20,13 @@ export default function Filmes() {
 
   useEffect(() => {
     const promise = axios.get(
-      "https://mock-api.driven.com.br/api/v8/cineflex/movies"
+      "https://mock-api.driven.com.br/api/v5/cineflex/movies"
     );
     promise.then((resposta) => {
       setFilmes(resposta.data);
     });
   }, []);
-  console.log(filmes);
+
   return (
     <Main>
       <h1>Selecione o filme</h1>
@@ -37,31 +38,6 @@ export default function Filmes() {
     </Main>
   );
 }
-
-const Main = styled.main`
-  padding-top: 70px;
-  width: 100%;
-
-  h1 {
-    font-family: "Roboto";
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 28.13px;
-    color: #293845;
-    text-align: center;
-    margin: 40px 0px;
-  }
-
-  h2 {
-    font-family: "Roboto";
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 28.13px;
-    color: #247a6b;
-    text-align: center;
-    margin: 40px 0px;
-  }
-`;
 
 const ContainerFilmes = styled.div`
   width: 375px;

@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -27,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	font-family: "Roboto";
 	line-height: 1;
 }
 ol, ul {
@@ -44,5 +46,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }`;
+
 
 export default GlobalStyle;
